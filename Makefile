@@ -21,7 +21,9 @@ CSTD=-std=c11
 STATIC=-static
 #GCOV=-fprofile-arcs -ftest-coverage
 #EFFCPP=-Weffc++
-WARNFLAGS= -Wall -Werror -Wextra -Wunused -Wlogical-op -Wredundant-decls -D_FORTIFY_SOURCE=2 -Wfloat-equal -fstack-protector -Wformat -Werror=format-security -Werror=pointer-arith -Wpedantic
+WARNFLAGS= -Wall -Werror -Wextra -Wunused -Wredundant-decls -D_FORTIFY_SOURCE=2 -Wfloat-equal -fstack-protector -Wformat -Werror=format-security -Werror=pointer-arith -Wpedantic
+WARNFLAGS_LINUX=-logical-op
+
 CFLAGS += $(INCS) -DGIT_VERSION=\"$(GIT_VERSION)\" $(WARNFLAGS) $(CSTD) $(GCOV)
 CXXFLAGS += $(INCS) $(STD) -g -DGIT_VERSION=\"$(GIT_VERSION)\" $(STATIC) $(WARNFLAGS) $(GCOV) $(EFFCPP)
 
@@ -69,7 +71,7 @@ SRCS_CPP += common_tool.cpp
 SRCS_CPP += telem_client.cpp
 SRCS_CPP += telem_forwarder_client.cpp
 SRCS_CPP += telem_serial.cpp
-SRCS_CPP += dataflash_logger.cpp 
+SRCS_CPP += dataflash_logger.cpp
 SRCS_CPP += analyzing_dataflash_message_handler.cpp
 SRCS_CPP += LA_MsgHandler.cpp
 SRCS_CPP += analyzing_mavlink_message_handler.cpp
